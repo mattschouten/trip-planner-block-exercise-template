@@ -1,0 +1,21 @@
+{
+	"name": "trip-timer-plugin",
+	"version": "0.1.0",
+	"description": "Example block scaffolded with Create Block tool.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^9.7.0",
+		"@wordpress/scripts": "^27.6.0"
+	},
+	"dependencies": {
+		"@wordpress/icons": "^9.46.0"
+	}
+}

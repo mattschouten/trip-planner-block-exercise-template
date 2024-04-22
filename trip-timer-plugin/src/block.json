@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "trip-planner/trip-timer-plugin",
+	"version": "0.1.0",
+	"title": "Create block",
+	"category": "widgets",
+	"description": "description",
+	"example": {},
+	"attributes": {
+		"tripName": {
+			"type": "string",
+			"default": ""
+		},
+		"tripTime": {
+			"type": "string",
+			"default": "16:30"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "trip-timer-plugin",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

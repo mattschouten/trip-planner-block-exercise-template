@@ -1,0 +1,180 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-create-block-trip-timer-plugin {
+	background-color: #21759b;
+	color: #fff;
+	padding: 2px;
+}
+
+.App {
+	text-align: center;
+  }
+
+  .App-logo {
+	height: 40vmin;
+	pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+	  animation: App-logo-spin infinite 20s linear;
+	}
+  }
+
+  .App-header {
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
+  }
+
+  ul {
+	text-align: left;
+	list-style: none !important;
+  }
+
+  .App-link {
+	color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+	from {
+	  transform: rotate(0deg);
+	}
+
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+
+  div.TripBasics,
+  div.CountdownPage {
+	text-align: center;
+  }
+
+  div.TripBasics label {
+	margin-top: 1em;
+  }
+
+  div.TripBasics input,
+  button {
+	margin: 0.5em;
+  }
+
+  div.TripBasics div {
+	padding-top: 1.5em;
+  }
+
+  #trip-title {
+	min-width: 30em;
+	text-align: center;
+  }
+
+  input#trip-title::placeholder {
+	text-align: center;
+  }
+
+  #border-div {
+	padding: 0em 1em 1em 1em;
+	display: inline-block;
+	border: 1px dashed lightgray;
+  }
+
+  .need-data {
+	background-color: lightyellow !important;
+  }
+
+  .whereto {
+	background-color: lightgreen;
+  }
+
+  .CountdownPage {
+	font-size: x-large;
+  }
+
+  div.otherStuff>div>div {
+	display: inline-block;
+	text-align: left;
+	padding: 1em;
+  }
+
+  div.otherStuff>div>h2 {
+	display: inline-block;
+	background-color: bisque;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	border-radius: 50em;
+  }
+
+  .newTask {
+	width: 100%;
+	max-width: 300px;
+  }
+
+  input[type=checkbox]:checked+label {
+	text-decoration: line-through;
+	color: gray;
+  }
+
+  input[type=checkbox] {
+	margin-right: 8px;
+  }
+
+  .CountdownPage ul {
+	background-color: lightgray;
+	display: inline-block;
+	list-style: inside;
+	border: 1px solid gray;
+	border-radius: 20px;
+  }
+
+  input [type=checkbox]~label,
+  li.taskItem {
+	padding-right: 2em;
+  }
+
+  .encouragementArea {
+	margin-top: 20px;
+	padding: 1.5em;
+	background-color: azure;
+	font-size: larger;
+	font-weight: bold;
+  }
+
+  .encouragementAreaRed {
+	background-color: lightpink !important;
+  }
+
+  .encouragementAreaYellow {
+	background-color: lightgoldenrodyellow;
+  }
+
+  .encouragementAreaGreen {
+	background-color: #bfb;
+  }
+
+ .CountdownPage div {
+	border-radius: 20px;
+	;
+  }
+
+  .timeInfoRed {
+	background-color: lightpink;
+  }
+
+  .timeInfoYellow {
+	background-color: lightgoldenrodyellow;
+  }
+
+  .timeInfoGreen {
+	background-color: #bfb;
+  }
