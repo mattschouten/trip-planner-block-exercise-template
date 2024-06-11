@@ -103,7 +103,7 @@ export default function TripCounter({ tripName, tripTime }) {
                         onChange={e => setNewTaskText(e.target.value)}
                         onKeyDown={checkEnterKey}
                     />
-                    <button onClick={addNewTask}>+</button>
+                    <button onClick={addNewTask} aria-label="Add Task Button">+</button>
                 </div>
                 <div className={encouragementAreaClasses()}>
                     {encouragement}
