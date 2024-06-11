@@ -19,7 +19,7 @@ export default function TripCounter({
 	const [secondsLeft, setSecondsLeft] = useState(
 		calculateSecondsLeft(tripTime),
 	);
-	const encouragement = "Let's go!";
+	const [encouragement, setEncouragement] = useState("Let's go!"); // Dynamic encouragement message
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -30,6 +30,23 @@ export default function TripCounter({
 			clearInterval(interval);
 		};
 	}, [tripTime]);
+
+	/**
+	 * Set encouragement message based on time left
+	 * 
+	 */
+		useEffect(() => {
+			if (secondsLeft <= 0) {
+				setEncouragement("We left already!");
+			} else if (secondsLeft < 60) {
+				setEncouragement("Hurry up!");
+			} else if (secondsLeft < 300) {
+				setEncouragement("Almost there!");
+			} else if (secondsLeft >= 300){
+				setEncouragement("Let's go!");
+			}
+		}, [secondsLeft]);
+	
 
 	function encouragementAreaClasses() {
 		const classes = ["encouragementArea"];
@@ -55,15 +72,26 @@ export default function TripCounter({
 				withoutInteractiveFormatting
 				placeholder="Trip name"
 				allowedFormats={[]}
+				aria-label="Trip name"
 			/>
 			<div class={"timeInfo" + getTimeInfoColorClass(secondsLeft)}>
 				<div>Out the door at {niceHumanTime(tripTime)}</div>
 				<div style={{ position: "relative" }}>
 					<span>{timeLeft} LEFT!</span>
 					{
-						<Button variant="tertiary" icon={edit} onClick={toggleVisible}>
+						<Button 
+						variant="tertiary" 
+						icon={edit} 
+						onClick={toggleVisible}
+						aria-expanded={!isInvisible}
+						aria-controls="time-popover"
+						>
 							{!isInvisible && (
-								<Popover onClose={toggleVisible}>
+								<Popover 
+									onClose={toggleVisible}
+									id="time-popover"
+									aria-label="Edit trip time"
+									>
 									<div className="time-popup-styles">
 										<TextControl
 											label="Trip Time"
@@ -135,6 +163,10 @@ function calculateTimeLeft(time) {
 	now.setSeconds(0);
 
 	let secondsLeft = (now - then) / 1000; // millis
+
+	if (secondsLeft <= 0) {
+		return;
+	}
 
 	if (secondsLeft > 3600) {
 		let hours = Math.floor(secondsLeft / 3600);
