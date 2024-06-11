@@ -96,12 +96,14 @@ export default function TripCounter({ tripName, tripTime }) {
                 </div>
 
                 <div>
+					<label htmlFor="newTask" className="visually-hidden">Add a new task:</label>
                     <input
                         class="newTask"
                         placeholder="Add tasks here"
                         value={newTaskText}
                         onChange={e => setNewTaskText(e.target.value)}
                         onKeyDown={checkEnterKey}
+						aria-label="New Task Input"
                     />
                     <button onClick={addNewTask} aria-label="Add Task Button">+</button>
                 </div>
