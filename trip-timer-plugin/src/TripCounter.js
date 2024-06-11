@@ -9,7 +9,8 @@ export default function TripCounter({ tripName, tripTime }) {
 	const [secondsLeft, setSecondsLeft] = useState(
 		calculateSecondsLeft(tripTime),
 	);
-	const encouragement = "Let's go!";
+	const [encouragement, setEncouragement] = useState("Let's go!"); // Dynamic encouragement message
+	const [errorMessage, setErrorMessage] = useState(''); // New state for error message
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -20,6 +21,22 @@ export default function TripCounter({ tripName, tripTime }) {
 			clearInterval(interval);
 		};
 	}, [tripTime]);
+
+	/**
+	 * Set encouragement message based on time left
+	 * 
+	 */
+	useEffect(() => {
+		if (secondsLeft <= 0) {
+			setEncouragement("We left already!");
+		} else if (secondsLeft < 60) {
+			setEncouragement("Hurry up!");
+		} else if (secondsLeft < 300) {
+			setEncouragement("Almost there!");
+		} else if (secondsLeft >= 300){
+			setEncouragement("Let's go!");
+		}
+	}, [secondsLeft]);
 
 	function encouragementAreaClasses() {
 		const classes = ["encouragementArea"];
@@ -43,8 +60,13 @@ export default function TripCounter({ tripName, tripTime }) {
     }
 
     function addNewTask() {
-        setTasks([...tasks, {text: newTaskText, done: false}]);
-        setNewTaskText('');
+        if (newTaskText.trim()) {
+            setTasks([...tasks, {text: newTaskText, done: false}]);
+            setNewTaskText('');
+			setErrorMessage('');
+        } else {
+			setErrorMessage('Please enter a task');
+		}
     }
 
     function changeCheckbox(event) {
@@ -70,6 +92,8 @@ export default function TripCounter({ tripName, tripTime }) {
                     id={id}
                     onChange={changeCheckbox}
                     checked={task.done}
+					aria-checked={task.done}
+					aria-label={`Mark task ${task.text} as ${task.done ? "incomplete" : "complete"}`}
                 />
                 <label htmlFor={id}>{task.text}</label>
             </li>
@@ -100,9 +124,12 @@ export default function TripCounter({ tripName, tripTime }) {
                         value={newTaskText}
                         onChange={e => setNewTaskText(e.target.value)}
                         onKeyDown={checkEnterKey}
+						onFocus={() => setErrorMessage('')} // Clear error message on input focus
+						aria-label="New task input"
                     />
-                    <button onClick={addNewTask}>+</button>
+                    <button onClick={addNewTask} aria-label="Add new task">+</button>
                 </div>
+				{errorMessage && <div className="error-message">{errorMessage}</div>} {/* Display error message */}
                 <div className={encouragementAreaClasses()}>
                     {encouragement}
                 </div>
@@ -155,12 +182,16 @@ function calculateTimeLeft(time) {
 
 	const [hours, minutes] = time.split(":");
 
-	now.setHours(hours);
-	now.setMinutes(minutes);
-	now.setSeconds(0);
+	then.setHours(hours);
+	then.setMinutes(minutes);
+	then.setSeconds(0);
 
-	let secondsLeft = (now - then) / 1000; // millis
-
+	let secondsLeft = (then - now) / 1000; // millis
+	
+	if (secondsLeft <= 0) {
+		return;
+	}
+	
 	if (secondsLeft > 3600) {
 		let hours = Math.floor(secondsLeft / 3600);
 		let minutes = Math.floor((secondsLeft % 3600) / 60);
