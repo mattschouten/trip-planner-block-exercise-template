@@ -43,8 +43,10 @@ export default function TripCounter({ tripName, tripTime }) {
     }
 
     function addNewTask() {
-        setTasks([...tasks, {text: newTaskText, done: false}]);
-        setNewTaskText('');
+		if (newTaskText.trim()) { // Check if the input is not just whitespace
+        	setTasks([...tasks, {text: newTaskText, done: false}]);
+        	setNewTaskText('');
+		}
     }
 
     function changeCheckbox(event) {
