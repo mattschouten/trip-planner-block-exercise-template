@@ -2,6 +2,12 @@
 
 This repository is a template to help reduce friction for folks working on a technical exercise.  Candidate instructions are below (but instructions provided by email take precedence).
 
+## Your Instructions
+
+If you received instructions in an email, please follow those.  You may be asked to do a subset of the exercise.  If you are asked to do a subset of the exercise, please do not do other parts in the Suggested Problem Statement section below.
+
+Do not submit your exercise as a pull request against this the `trip-planner-block-exercise-template` repository.  If you would like to use Github pull requests, fork the repository and create a pull request in your fork.
+
 ## Suggested Problem Statement
 
 Hi!
