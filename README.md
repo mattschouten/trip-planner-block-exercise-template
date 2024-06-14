@@ -6,7 +6,7 @@ This repository is a template to help reduce friction for folks working on a tec
 
 If you received instructions in an email, please follow those.  You may be asked to do a subset of the exercise.  If you are asked to do a subset of the exercise, please do not do other parts in the Suggested Problem Statement section below.
 
-Do not submit your exercise as a pull request against this the `trip-planner-block-exercise-template` repository.  If you would like to use Github pull requests, fork the repository and create a pull request in your fork.
+Do not submit your exercise as a pull request against this the `trip-planner-block-exercise-template` repository.  If you would like to use Github pull requests, [create a new repository from the template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) and create a pull request in your repository.
 
 ## Suggested Problem Statement
 
