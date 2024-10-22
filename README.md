@@ -8,6 +8,8 @@ If you received instructions in an email, please follow those.  You may be asked
 
 Do not submit your exercise as a pull request against this the `trip-planner-block-exercise-template` repository.  If you would like to use Github pull requests, [create a new repository from the template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) and create a pull request in your repository.
 
+Instructions for easily running WordPress and seeing the block involved in this exercise are found in [trip-timer-plugin/README.md](trip-timer-plugin/README.md).
+
 ## Suggested Problem Statement
 
 Hi!
@@ -21,7 +23,7 @@ This repository contains code for a WordPress block plugin that defines a 'trip 
 
 ### Reviewing Existing Code
 
-Please look over the code.  Consider the WordPress block as one we want to add to our library of blocks which we actively maintain.  Look out for accessibility, maintainability, documentation, and general correctness.  Provide your comments, suggestions, recommendations, and overall evaluation.  The format you use is up to you.  It could be as simple as an email, or something more complex like a PR in a private Github repository shared with our reviewers.
+Please look over the code (and consider running the code as well, if that’d be part of your normal review process).  Consider the WordPress block as one we want to add to our library of blocks which we actively maintain.  Look out for accessibility, maintainability, documentation, and general correctness.  Provide your comments, suggestions, recommendations, and overall evaluation.  The format you use is up to you.  It could be as simple as an email, or something more complex like a PR in a private Github repository shared with our reviewers.
 
 When you do your evaluation, imagine that this is code in a pull request (or similar review request) from a colleague.  Your team will be responsible for maintaining this plugin. Use that to help guide your review.
 
